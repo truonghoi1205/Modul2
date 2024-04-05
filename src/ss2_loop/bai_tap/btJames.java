@@ -100,5 +100,9 @@ public class btJames {
                 System.out.println(i + " không là SNT");
             }
         }*/
+        for(int i=3; i<=5; ){
+            System.out.println("Hello");
+            i++;
+        }
     }
 }
