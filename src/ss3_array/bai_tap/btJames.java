@@ -91,7 +91,7 @@ public class btJames {
             System.out.println(Arrays.toString(arr[i]));
         }*/
 
-        /*Tìm phần tử nhỏ nhất trong mảng chiều:*/
+        /*Tìm phần tử nhỏ nhất trong mảng chiều:
         System.out.println("nhập số phần tử mảng");
         int N = input.nextInt();
         int[] arr = new int[N];
@@ -105,6 +105,7 @@ public class btJames {
                 min = arr[i];
             }
         }
-        System.out.println("Giá trị nhỏ nhất trong mảng là: "+min);
+        System.out.println("Giá trị nhỏ nhất trong mảng là: "+min);*/
+
     }
 }

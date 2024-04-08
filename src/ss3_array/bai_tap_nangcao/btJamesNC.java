@@ -65,5 +65,7 @@ public class btJamesNC {
             }
         }
         System.out.println("số lần xuất hiện kí tự " + character + " là: " + count);*/
+
+
     }
 }

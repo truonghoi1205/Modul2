@@ -1,5 +1,6 @@
 package ss2_loop.bai_tap;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class btJames {
@@ -100,9 +101,6 @@ public class btJames {
                 System.out.println(i + " không là SNT");
             }
         }*/
-        for(int i=3; i<=5; ){
-            System.out.println("Hello");
-            i++;
-        }
+
     }
 }
