@@ -1,6 +1,4 @@
-package ss4_ClassAndObject.bai_tap.Fan;
-
-import java.util.PrimitiveIterator;
+package ss4_class_and_object.bai_tap.fan;
 
 public class Fan {
     final int SLOW = 1;

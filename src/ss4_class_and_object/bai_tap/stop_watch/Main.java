@@ -1,4 +1,4 @@
-package ss4_ClassAndObject.bai_tap.StopWatch;
+package ss4_class_and_object.bai_tap.stop_watch;
 
 public class Main {
     public static void main(String[] args) {

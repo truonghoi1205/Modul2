@@ -1,6 +1,6 @@
-package ss6_inheritance.thuc_hanh;
+package ss7_abstract_class_and_interface.bai_tap.bai1;
 
-public class Shape {
+public abstract class Shape {
     private String color = "green";
     private boolean filled = true;
 
@@ -27,13 +27,5 @@ public class Shape {
     public void setFilled(boolean filled) {
         this.filled = filled;
     }
-
-    @Override
-    public String toString() {
-        if(isFilled()) {
-            return "A Shape with color of " + getColor() + " and filled";
-        } else {
-            return "A Shape with color of " + getColor() + " and not filled";
-        }
-    }
+   protected abstract double getArea();
 }

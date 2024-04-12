@@ -1,6 +1,4 @@
-package ss4_ClassAndObject.bai_tap.StopWatch;
-
-import java.util.Date;
+package ss4_class_and_object.bai_tap.stop_watch;
 
 public class StopWatch {
     private long startTime;

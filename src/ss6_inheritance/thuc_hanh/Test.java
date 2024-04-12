@@ -1,6 +1,6 @@
 package ss6_inheritance.thuc_hanh;
 
-public class TestShape {
+public class Test {
     public static void main(String[] args) {
         //testShape
         Shape shape = new Shape();

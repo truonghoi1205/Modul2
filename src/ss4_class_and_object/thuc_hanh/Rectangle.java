@@ -1,4 +1,4 @@
-package ss4_ClassAndObject.thuc_hanh;
+package ss4_class_and_object.thuc_hanh;
 
 public class Rectangle {
     int length;
