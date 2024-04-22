@@ -1,5 +1,7 @@
-package ss12_java_collection_framework.bai_tap;
+package ss12_java_collection_framework.bai_tap.bai1;
 
+import java.util.Arrays;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Menu {
@@ -16,7 +18,8 @@ public class Menu {
             System.out.println("3. Xóa sản phẩm theo id");
             System.out.println("4. Hiển thị tất cả sản phẩm");
             System.out.println("5. Tìm kiếm sản phẩm theo tên");
-            System.out.println("6. Sắp xếp sản phẩm tăng dần, giảm dần theo giá");
+            System.out.println("6. Sắp xếp sản phẩm tăng dần theo giá");
+            System.out.println("7. Sắp xếp sản phẩm giảm dần theo giá");
             System.out.println("0. Đăng xuất");
             choice = input.nextInt();
             switch (choice) {
@@ -36,12 +39,17 @@ public class Menu {
                     search();
                     break;
                 case 6:
+                    sortUp();
+                    break;
+                case 7:
+                    sortDescending();
                     break;
             }
         } while (choice != 0);
     }
 
     public void display() {
+        System.out.println("Danh sách sản phẩm: ");
         productManager.displayProduct();
     }
 
@@ -73,13 +81,31 @@ public class Menu {
         productManager.editProduct(id, newProduct);
         System.out.println("======> Sửa thành công");
     }
+
     public void search() {
         System.out.println("Nhập tên sản phẩm bạn muốn tìm: ");
         String name = inputStr.nextLine();
-        if(productManager.findProductByName(name) !=  null) {
-            System.out.println(productManager.listProduct);
-        } else{
-            System.out.println("không tìm thấy sản phẩm");
+        for (Product product : productManager.listProduct) {
+            if (!Objects.equals(product.getName(), name)) {
+                System.out.println("không tìm thấy sản phẩm " + name);
+                break;
+            } else {
+                System.out.println("Kết quả " + "'" + name + "'" + " bạn muốn tìm:");
+                productManager.findProductByName(name);
+                break;
+            }
         }
     }
+    public void sortUp() {
+        productManager.sortProductsByAscendingPrice();
+        System.out.println("Danh sách sản phẩm giá tăng dần: ");
+        productManager.displayProduct();
+    }
+
+    public void sortDescending() {
+        productManager.sortProductsByPriceInDescendingOrder();
+        System.out.println("Danh sách sản phẩm giá giảm dần: ");
+        productManager.displayProduct();
+    }
 }
+

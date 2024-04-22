@@ -2,8 +2,8 @@ package ss11_dsa_stack_queue.bai2;
 
 import java.util.*;
 
-public class MyTreeMap {
-    
+public class MyMap {
+    //[Bài tập] Đếm số lần xuất hiện của mỗi từ trong một chuỗi sử dụng Map
     public static void main(String[] args) {
         String str ="Hello world, hello";
         str = str.replaceAll(",","");

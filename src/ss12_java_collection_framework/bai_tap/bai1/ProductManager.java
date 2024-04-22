@@ -1,14 +1,13 @@
-package ss12_java_collection_framework.bai_tap;
+package ss12_java_collection_framework.bai_tap.bai1;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import ss12_java_collection_framework.bai_tap.bai1.Product;
+
+import java.util.*;
 
 public class ProductManager {
     List<Product> listProduct = new ArrayList<>();
 
     public void displayProduct() {
-        System.out.println("Danh sách sản phẩm: ");
         for (Product product : listProduct) {
             System.out.println(product);
         }
@@ -37,12 +36,17 @@ public class ProductManager {
         listProduct.remove(index);
     }
 
-    public Product findProductByName(String name) {
+    public void findProductByName(String name) {
         for (Product product : listProduct) {
-            if (product.getName().equals(name)) {
-                return product;
+            if (product.getName().toLowerCase().startsWith(name.toLowerCase())) {
+                System.out.println(product);
             }
         }
-        return null;
+    }
+    public void sortProductsByAscendingPrice() {
+        listProduct.sort(Comparator.comparingDouble(Product::getPrice));
+    }
+    public void sortProductsByPriceInDescendingOrder() {
+        listProduct.sort(Comparator.comparingDouble(Product::getPrice).reversed());
     }
 }

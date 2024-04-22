@@ -1,4 +1,4 @@
-package ss10_dsa_list.bai_tap_slack;
+package ss10_dsa_list.bai_tap_slack.model;
 
 public class Student {
     private static int lastedId = 0;
@@ -7,7 +7,7 @@ public class Student {
     private String email;
     private double gpa;
 
-    public Student( String name, String email, double gpa) {
+    public Student(String name, String email, double gpa) {
         this.name = name;
         this.email = email;
         this.gpa = gpa;

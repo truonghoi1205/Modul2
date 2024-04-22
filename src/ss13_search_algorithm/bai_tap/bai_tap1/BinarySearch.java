@@ -1,9 +1,10 @@
 package ss13_search_algorithm.bai_tap.bai_tap1;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
-public class Main {
+public class BinarySearch {
     public static void main(String[] args) {
         ArrayList<Integer> array = new ArrayList<>();
         Scanner input = new Scanner(System.in);
@@ -14,7 +15,7 @@ public class Main {
         }
         System.out.println("Mảng trước khi sắp xếp: ");
         System.out.println(array);
-        sort(array);
+        Collections.sort(array);
         System.out.println("Mảng sau khi sắp xếp: ");
         System.out.println(array);
         System.out.println("Nhập số cần tìm: ");
@@ -27,18 +28,6 @@ public class Main {
         }
     }
 
-    public static void sort(ArrayList<Integer> arr) {
-        int temp = arr.get(0);
-        for (int i = 0; i < arr.size(); i++) {
-            for (int j = i + 1; j < arr.size(); j++) {
-                if (arr.get(i) > arr.get(j)) {
-                    temp = arr.get(j);
-                    arr.set(j, arr.get(i));
-                    arr.set(i, temp);
-                }
-            }
-        }
-    }
 
     public static int binarySearch(ArrayList<Integer> arr, int left, int right, int value) {
         int middle = (left + right) / 2;

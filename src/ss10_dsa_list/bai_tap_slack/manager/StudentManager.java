@@ -1,14 +1,17 @@
-package ss10_dsa_list.bai_tap_slack;
+package ss10_dsa_list.bai_tap_slack.manager;
+
+import ss10_dsa_list.bai_tap_slack.model.Student;
 
 import java.util.ArrayList;
 
-public class StudentManager {
-    private final ArrayList<Student> studentLists;
+public class StudentManager implements IManager<Student> {
+    ArrayList<Student> studentLists;
 
     public StudentManager() {
         this.studentLists = new ArrayList<>();
     }
 
+    @Override
     public void displayStudent() {
         System.out.println("List of student: ");
         for (Student student : studentLists) {
@@ -16,18 +19,27 @@ public class StudentManager {
         }
     }
 
+    @Override
     public void addStudent(Student student) {
         studentLists.add(student);
     }
 
     public void deleteStudent(int id) {
-        for (Student student : studentLists) {
-            if (id == student.getId()) {
-                studentLists.remove(id);
-                break;
+        int index = findIndexById(id);
+        studentLists.remove(index);
+    }
+
+    @Override
+    public int findIndexById(int id) {
+        for (int i = 0; i < studentLists.size(); i++) {
+            if (studentLists.get(i).getId() == id) {
+                return i;
             }
         }
+        return -1;
     }
+
+    @Override
     public void displayStudentsWithHighGPA() {
         for (Student student : studentLists) {
             if (student.getGpa() > 8) {
@@ -35,4 +47,5 @@ public class StudentManager {
             }
         }
     }
+    
 }
