@@ -1,6 +1,6 @@
 package ss12_java_collection_framework.bai_tap.bai1;
 
-public class Product {
+public class Product{
     private int id;
     private String name;
     private Double price;
@@ -12,11 +12,6 @@ public class Product {
         this.price = price;
     }
 
-    public Product(int id, String name, Double price) {
-        this.id = id;
-        this.name = name;
-        this.price = price;
-    }
 
     public int getId() {
         return id;

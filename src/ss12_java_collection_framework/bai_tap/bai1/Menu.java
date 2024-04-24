@@ -1,6 +1,6 @@
 package ss12_java_collection_framework.bai_tap.bai1;
 
-import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -72,14 +72,20 @@ public class Menu {
 
     public void edit() {
         System.out.println("Vui lòng nhập id sản phẩm bạn muốn sửa: ");
-        int id = input.nextInt();
-        System.out.println("Vui lòng nhập lại tên sản phẩm: ");
-        String name = inputStr.nextLine();
-        System.out.println("Vui lòng nhập lại giá sản phẩm: ");
-        double price = input.nextDouble();
-        Product newProduct = new Product(id, name, price);
-        productManager.editProduct(id, newProduct);
-        System.out.println("======> Sửa thành công");
+        while (true) {
+            try {
+                int inputId = input.nextInt();
+                Product pr = productManager.findProductById(inputId);
+                productManager.editProduct(pr);
+                break;
+            } catch (InputMismatchException ignored) {
+                System.err.println("vui lòng nhập đúng id");
+                input.next();
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+                return;
+            }
+        }
     }
 
     public void search() {
@@ -96,6 +102,7 @@ public class Menu {
             }
         }
     }
+
     public void sortUp() {
         productManager.sortProductsByAscendingPrice();
         System.out.println("Danh sách sản phẩm giá tăng dần: ");

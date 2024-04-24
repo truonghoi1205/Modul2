@@ -1,15 +1,18 @@
 package ss12_java_collection_framework.bai_tap.bai1;
 
-import ss12_java_collection_framework.bai_tap.bai1.Product;
-
 import java.util.*;
 
 public class ProductManager {
+    public static Scanner scanner = new Scanner(System.in);
     List<Product> listProduct = new ArrayList<>();
 
     public void displayProduct() {
-        for (Product product : listProduct) {
-            System.out.println(product);
+        if (listProduct.isEmpty()) {
+            System.out.println("Không có sản phẩm nào");
+        } else {
+            for (Product product : listProduct) {
+                System.out.println(product);
+            }
         }
     }
 
@@ -26,9 +29,21 @@ public class ProductManager {
         return -1;
     }
 
-    public void editProduct(int id, Product product) {
-        int index = findIndexById(id);
-        listProduct.set(index, product);
+    public Product findProductById(int id) throws Exception{
+        if (findIndexById(id) == -1) {
+            throw new Exception("không tìm thấy sản phẩm");
+        }
+        return listProduct.get(findIndexById(id));
+    }
+
+    public void editProduct(Product pr) {
+            System.out.println("Vui lòng nhập lại tên sản phẩm: ");
+            String inputName = scanner.nextLine();
+            System.out.println("Vui lòng nhập lại giá sản phẩm: ");
+            double inputPrice = scanner.nextDouble();
+            pr.setName(inputName);
+            pr.setPrice(inputPrice);
+            System.out.println("============> Sửa thành công");
     }
 
     public void deleteProduct(int id) {
@@ -43,10 +58,12 @@ public class ProductManager {
             }
         }
     }
+
     public void sortProductsByAscendingPrice() {
-        listProduct.sort(Comparator.comparingDouble(Product::getPrice));
+        listProduct.sort(new ProductComparator());
     }
+
     public void sortProductsByPriceInDescendingOrder() {
-        listProduct.sort(Comparator.comparingDouble(Product::getPrice).reversed());
+        listProduct.sort(new ProductComparator().reversed());
     }
 }
