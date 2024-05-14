@@ -29,7 +29,7 @@ public class ProductManager {
         return -1;
     }
 
-    public Product findProductById(int id) throws Exception{
+    public Product findProductById(int id) throws Exception {
         if (findIndexById(id) == -1) {
             throw new Exception("không tìm thấy sản phẩm");
         }
@@ -37,13 +37,13 @@ public class ProductManager {
     }
 
     public void editProduct(Product pr) {
-            System.out.println("Vui lòng nhập lại tên sản phẩm: ");
-            String inputName = scanner.nextLine();
-            System.out.println("Vui lòng nhập lại giá sản phẩm: ");
-            double inputPrice = scanner.nextDouble();
-            pr.setName(inputName);
-            pr.setPrice(inputPrice);
-            System.out.println("============> Sửa thành công");
+        System.out.println("Vui lòng nhập lại tên sản phẩm: ");
+        String inputName = scanner.nextLine();
+        System.out.println("Vui lòng nhập lại giá sản phẩm: ");
+        double inputPrice = scanner.nextDouble();
+        pr.setName(inputName);
+        pr.setPrice(inputPrice);
+        System.out.println("============> Sửa thành công");
     }
 
     public void deleteProduct(int id) {

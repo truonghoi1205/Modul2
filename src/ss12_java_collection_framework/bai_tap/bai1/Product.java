@@ -3,7 +3,7 @@ package ss12_java_collection_framework.bai_tap.bai1;
 public class Product{
     private int id;
     private String name;
-    private Double price;
+    private double price;
     private static int lastedId = 0;
 
     public Product(String name, Double price) {
